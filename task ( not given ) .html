@@ -1,0 +1,152 @@
+!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #141e30, #243b55);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calculator {
+            background: #ffffff;
+            width: 350px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+        h2 {
+            color: #243b55;
+            margin-bottom: 25px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: #243b55;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #243b55;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #141e30;
+            transform: scale(1.03);
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eaf2f8;
+            color: #243b55;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <h2>My Calculator</h2>
+
+        <input type="number" id="num1" placeholder="Enter first number">
+
+        <input type="number" id="num2" placeholder="Enter second number">
+
+        <select id="operation">
+            <option value="">Select Operation</option>
+            <option value="+">Addition (+)</option>
+            <option value="-">Subtraction (-)</option>
+            <option value="*">Multiplication (*)</option>
+            <option value="/">Division (/)</option>
+        </select>
+
+        <button onclick="calculate()">Calculate</button>
+
+        <div id="result">Result will appear here</div>
+
+    </div>
+
+    <script>
+        function calculate() {
+
+            var a = Number(document.getElementById("num1").value);
+            var b = Number(document.getElementById("num2").value);
+            var c = document.getElementById("operation").value;
+
+            var d;
+
+            if (document.getElementById("num1").value === "" ||
+                document.getElementById("num2").value === "") {
+                document.getElementById("result").innerHTML = "Please enter both numbers";
+            }
+
+            else if (c == "+") {
+                d = a + b;
+                document.getElementById("result").innerHTML = "Sum: " + d;
+            }
+
+            else if (c == "-") {
+                d = a - b;
+                document.getElementById("result").innerHTML = "Difference: " + d;
+            }
+
+            else if (c == "*") {
+                d = a * b;
+                document.getElementById("result").innerHTML = "Product: " + d;
+            }
+
+            else if (c == "/") {
+                if (b == 0) {
+                    document.getElementById("result").innerHTML = "Cannot divide by zero";
+                } else {
+                    d = a / b;
+                    document.getElementById("result").innerHTML = "Quotient: " + d;
+                }
+            }
+
+            else {
+                document.getElementById("result").innerHTML = "Invalid operation";
+            }
+        }
+    </script>
+
+</body>
+</html>

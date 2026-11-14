@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var burger = 500
+        var pizza = 1000
+        var balance = 2000
+        var a = prompt("Enter your order")
+        if(a == "burger"){
+            alert("your order is: " + a + "\n" + "price: " + burger + "\n" + "balance: " + balance + " remaining balance: " + (balance - burger))
+        }
+       if(a == "pizza"){
+            alert("your order is: " + a + "\n" + "price: " + pizza + "\n" + "balance: " + balance + " remaining balance: " + (balance - pizza))
+        }
+        else{
+            alert("invalid order")
+        }
+    </script>
+</body>
+</html>
